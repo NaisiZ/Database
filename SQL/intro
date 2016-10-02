@@ -1,0 +1,33 @@
+wk1:
+create table Student(First_Name varchar2(20),Last_Name varchar2(20),"Studentid" int ,"StartDate" date , "Degree" varchar2(20));
+
+insert into Student values('Naisi', 'Z',8950, '01-APR-2016', 'Master');
+
+select * from Student ORDER BY "Studentid";
+
+select * from Student WHERE "Studentid" = 8950 ORDER BY "Studentid";
+
+insert into Student values ('Jagdeep', 'Shetty', 12345, '01-JAN-1980', 'Master');
+insert into Student values ('Jack', 'Daniel', 12346, '01-JAN-1980', 'Master');
+insert into Student values ('ShallowJag', 'Shetty', 12347, '01-JAN-1980', 'Master');
+select * from Student WHERE 'Last Name' = 'Shetty';
+select * from Student WHERE First_Name like 'J%';
+
+ select substr("First Name", 1,3) , substr("Last Name", 1,5) from Student
+
+wk2:
+create table Office_Location (location_code int not null,location_name varchar2(20));
+
+create table Department_information (department_code INTEGER primary key, department_name varchar2(20), location_code INTEGER);
+
+create table USstates (state_code varchar2(2) unique NOT NULL, state_name varchar2(20) unique not null);
+
+alter table Department_inforamtion modify phone varchar2(10) not null;
+
+ALTER TABLE Department_information ADD CHECK (location='CA' or location='NV');
+
+alter table Department_inforamtion add headquarters varchar2(30);
+
+insert into Department_information (department_name, phone) values ('Sales', 999888666);
+
+
