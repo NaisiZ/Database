@@ -1,0 +1,48 @@
+create table office(location_code int, location_name varchar2(10) primary key);
+
+create table department
+(department_info varchar2(10) primary key, department_code int, department_name varchar2(10), location_code int);
+
+create table usstates(state_code varchar2(10), state_name varchar2(10));
+
+insert into usstates(STATE_CODE, state_name)
+values('CA', 'Califoria');
+
+select *from usstates;
+
+alter table department add phone number;
+
+alter table department
+modify phone varchar(10);
+
+desc department;
+
+alter table department add location number;
+
+alter table department modify location varchar(2);
+
+alter table department modify phone varchar2(10) not null;
+
+alter table department
+modify location check(location='CA' or location='NV');
+
+alter table department
+add headquarters number;
+
+alter table department modify headquarters varchar(30);
+desc department;
+insert into department(DEPARTMENT_INFO, department_name, phone)
+values ('NPU','Sales', '999888666');
+
+select *from DEPARTMENT;
+
+
+alter table department
+modify department_name varchar2(20);
+
+insert into department (DEPARTMENT_INFO, department_name)
+values('NPU', 'Support');
+insert into department (DEPARTMENT_INFO, department_name)
+values('NPU', 'Engineering');
+desc department;
+
