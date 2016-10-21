@@ -1,0 +1,32 @@
+
+insert into department (DEPARTMENT_INFO, department_name, phone)
+values('NPU', 'Support', '408400400');
+insert into department (DEPARTMENT_INFO, department_name, phone)
+values('NPU', 'Engineering','408400401');
+desc department;
+
+alter table department modify headquarters NOT NUll;
+
+alter table department drop column HEADQUARTERS; 
+
+alter table department 
+  set unused column phone;
+  
+Alter table department
+drop constraint chk_department;
+Alter table department
+add constraint chk_location check (location='CA' or location='NV' or location='WA');
+
+insert into department 
+(DEPARTMENT_info, department_name,LOCATION)
+values('NPU','marketing','WA');
+
+alter table department add constraint uni_dept unique department_ID;
+
+rename Department to OldDepartment;
+
+Drop Olddepartment;
+
+create table Department 
+(department_name varchar2(50), department_code int(10), location varchar2(10), phone int(20) Not Null)
+
