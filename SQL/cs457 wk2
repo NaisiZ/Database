@@ -1,0 +1,80 @@
+Create table Department
+(
+Department_ID int,
+Department_Name varchar2(20),
+Manager_ID  int,
+Location_ID  int);
+insert into department values
+(10, 'Administration', 200, 1700);
+insert into department values
+(20, 'Marketing', 504, 1800);
+insert into department values
+(30, 'Shipping', 124, 1500);
+insert into department values
+(40, 'IT', 103, 1400);
+insert into department values
+(50, 'Sales', 506, 2500);
+insert into department values
+(60, 'HR', 100, 1700);
+insert into department values
+(70, 'Accounting', 205, 1700);
+insert into department values
+(80, 'MIS', 206, 1700);
+insert into department (Department_ID,Department_NAME, Location_ID) values
+(90, 'Product Management', 1700);
+
+Create table Employee(
+Empployee_ID int,
+First_Name varchar2(10),
+Last_Name varchar2(10),
+JOB_ID int,
+SALARY int,
+COMM_PCT int,
+Manager_ID int,
+Department_ID int);
+
+insert into employee values
+(101, 'Elen','Abel', 501, 1000, null, 506, 50);
+insert into employee values
+(102, 'Peter','White', 501, 1100, null, 506, 50);
+insert into employee values
+(103, 'Alex','Li', 509, 1200, 3, null, 50);
+insert into employee values
+(104, 'Austin','Ho', 505, 1500, 2, null, 80);
+insert into employee values
+(105, 'Rayson','Lee', 506, 2000, 5, 504, 20);
+insert into employee values
+(106, 'Tinlot','Hu', 504, 300, 3, null, 70);
+insert into employee values
+(107, 'Jason','Teng', 506, 5000, 2, null, 60);
+insert into employee values
+(108, 'Watson','Deng', 503, 2000, null, null, 50);
+insert into employee values
+(109, 'Vinecent','Wang', 502, 3000, 3, null, 40);
+insert into employee values
+(110, 'George','Chen', 501, 3000, null, 506, 50);
+
+select * from employee;
+select emp_id, first_name, last_name from employee;
+
+SELECT * FROM DEPARTMENT;
+
+SELECT employee_id, first_name, last_name, department_id 
+FROM employee where department_id=50; 
+SELECT last_name 
+FROM employee WHERE last_name='Lee'; 
+SELECT employee_id,salary 
+FROM employee WHERE salary BETWEEN 3000 AND 5000; 
+SELECT employee_id,last_name 
+FROM employee WHERE last_name like '_e%'; 
+SELECT employee_id,manager_id FROM employee WHERE manager_id is null; 
+SELECT employee_id,department_id,salary 
+FROM employee WHERE department_id in(40,60,70) and salary>2500; 
+SELECT department_id,salary 
+FROM employee ORDER BY department_id desc,salary desc; 
+INSERT INTO department 
+values(100,'Information Security',null,null); 
+SELECT to_char(sysdate,'yyyy/mm/dd hh24:MI:ss')"now" FROM dual; 
+UPDATE employee set salary=6000,department_id=100 where employee_id=107; 
+SELECT * FROM employee WHERE employee_id in 107; 
+
